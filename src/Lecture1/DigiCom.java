@@ -19,9 +19,10 @@ public class DigiCom {
 
         int hoursWorked;
 
+        Worker [] staff = new Worker[5];
+        
         // Read hours worked from user
         Scanner sc = new Scanner(System.in);
-        double totalWages = 0;
         // Read info for five workers
         for (int i = 0; i < 5; i++) {
             System.out.print("Enter name of worker :");
@@ -32,11 +33,17 @@ public class DigiCom {
             hoursWorked = sc.nextInt();
             sc.nextLine();  // consume the newline for the int
             
-            double weeklyWage = calcWage(hourlyRate, hoursWorked);
-            totalWages += weeklyWage;
-            printInfo(name, weeklyWage);
+            staff[i] = new Worker(name, hourlyRate, hoursWorked);
+            System.out.println("Worker created." + staff[i].toString());
            }   // end of for loop
 
+        double totalWages = 0;
+        for (Worker w: staff)
+        {
+            double weeklyWage = calcWage(w.getHourlyRate(), w.getHoursWorked());
+            totalWages += weeklyWage;
+            System.out.println(w.getName() + " was paid $" + weeklyWage);
+        }
         System.out.printf("The total wages paid is $%5.2f\n", totalWages);
     }
 
