@@ -20,7 +20,7 @@ public class DigiCom
         
     	// Read hours worked from user
     	Scanner sc = new Scanner(System.in);
-    	
+    	double totalWages = 0;
         // Read info for five workers
         for (int i = 0; i < 5; i++)
         {
@@ -42,7 +42,10 @@ public class DigiCom
                 double overTimePay = extraHours * hourlyRate * overtimeRate;
                 weeklyWage = normalHours * hourlyRate + overTimePay;
             }
+            totalWages += weeklyWage;
             System.out.printf("The weekly wage for %s is $%5.2f\n", name, weeklyWage);
         }   // end of for loop
+        
+        System.out.printf("The total wages paid is $%5.2f\n", totalWages);
   }
 }
