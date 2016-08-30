@@ -21,22 +21,28 @@ public class DigiCom
     	// Read hours worked from user
     	Scanner sc = new Scanner(System.in);
     	
-        System.out.println("Enter the hourly rate :");
-        hourlyRate = sc.nextDouble();
-    	System.out.print("Enter the hours worked : ");
-    	hoursWorked = sc.nextInt();
-        double weeklyWage;
-        int extraHours = hoursWorked - normalHours;
-        if (extraHours <= 0)
+        // Read info for five workers
+        for (int i = 0; i < 5; i++)
         {
-            weeklyWage = hourlyRate * hoursWorked;
-        }
-        else
-        {
-            double overTimePay = extraHours * hourlyRate * overtimeRate;
-            weeklyWage = normalHours * hourlyRate + overTimePay;
-        }
-        
-	System.out.println("the weekly wage is " + weeklyWage);
+            System.out.print("Enter name of worker :");
+            String name = sc.nextLine();
+            System.out.print("Enter the hourly rate :");
+            hourlyRate = sc.nextDouble();
+            System.out.print("Enter the hours worked : ");
+            hoursWorked = sc.nextInt();
+            sc.nextLine();  // consume the newline for the int
+            double weeklyWage;
+            int extraHours = hoursWorked - normalHours;
+            if (extraHours <= 0)
+            {
+                weeklyWage = hourlyRate * hoursWorked;
+            }
+            else
+            {
+                double overTimePay = extraHours * hourlyRate * overtimeRate;
+                weeklyWage = normalHours * hourlyRate + overTimePay;
+            }
+            System.out.printf("The weekly wage for %s is $%5.2f\n", name, weeklyWage);
+        }   // end of for loop
   }
 }
