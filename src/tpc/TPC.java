@@ -75,7 +75,7 @@ public class TPC {
         {
             Project p = TPCProjects[i];
             if (p.getProjectName().contains(searchString))
-            foundProjects += p.toString();
+            foundProjects += p.toString()+"\n";
         }
          return foundProjects;
     }

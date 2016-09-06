@@ -25,7 +25,9 @@ public class TPCConsole {
         {
             System.out.println("Would you like to:");
             System.out.println("1. Add New Project");
-            System.out.println("2. Show All Projects");
+            System.out.println("2. Show Projects");
+            System.out.println("3. Add Task to Project");
+            System.out.println("4. View Project Tasks");
             System.out.println("0. Quit");
             System.out.print("\nEnter choice :");
             choice = sc.nextInt();
@@ -34,6 +36,8 @@ public class TPCConsole {
             {
                 case 1: addProject(); break;
                 case 2: findProjects();break;
+                case 3: addTask(); break;
+                case 4: viewTasks(); break;
                 case 0: System.out.println("Goodbye");
                 default: System.out.println("Invalid choice");
             }
@@ -60,7 +64,47 @@ public class TPCConsole {
 		else
 			System.out.println(tpc.findProject(wanted));
 	}
+    
+    public static void addTask()
+    {
+        System.out.print("Enter project number :");
+        int wantedProject = sc.nextInt();
+        sc.nextLine();
+        Project foundProject = tpc.findProject(wantedProject);
+        if (foundProject == null)
+        {
+            System.out.println("No such project");
+        }
+        else
+        {
+            System.out.println("Project Found: " + foundProject.toString());
+            System.out.print("Enter Task description :");
+            String description = sc.nextLine();
+            System.out.println("Enter Estimated hours :");
+            int estHours = sc.nextInt();
+            sc.nextLine();
+            Task t = foundProject.addTask(description, estHours);
+            System.out.println("Task created:" + t.toString());
+        }
+        
+    }
 	
+    public static void viewTasks()
+    {
+        System.out.print("Enter project number :");
+        int wantedProject = sc.nextInt();
+        sc.nextLine();
+        Project foundProject = tpc.findProject(wantedProject);
+        if (foundProject == null)
+        {
+            System.out.println("No such project");
+        }
+        else
+        {
+            System.out.println("Project Found: " + foundProject.toString());
+            System.out.println(foundProject.allTasks());
+        }
+    }
 }
 
 

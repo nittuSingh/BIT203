@@ -12,24 +12,24 @@ package tpc;
 public class Task {
     
     private Project theProject;
-    private int taskNo;
+    private String taskNo;
     private String description;
     private int estHours;
     private int actualHours;
     private String status;
     
     public Task(Project theProject, String description, int estHours)
-    {
+    {   setTaskNo("P"+theProject.getProjectNum()+'-'+theProject.getNumTasks());
         setProject(theProject);
         setDescription(description);
         setEstHours(estHours);
     }
 
-    public int getTaskNo() {
+    public String getTaskNo() {
         return taskNo;
     }
 
-    public void setTaskNo(int taskNo) {
+    public void setTaskNo(String taskNo) {
         this.taskNo = taskNo;
     }
 
