@@ -33,7 +33,7 @@ public class TPCConsole {
             switch(choice)
             {
                 case 1: addProject(); break;
-                case 2: System.out.println(tpc.getAllProjects());break;
+                case 2: findProjects();break;
                 case 0: System.out.println("Goodbye");
                 default: System.out.println("Invalid choice");
             }
@@ -50,4 +50,17 @@ public class TPCConsole {
         else
             System.out.println("Project not created");
     }
+    
+    public static void findProjects()
+	{
+		System.out.println("Enter keyword to search or press enter to list all");
+		String wanted = sc.nextLine();
+		if (wanted.equals(""))
+			System.out.println(tpc.getAllProjects());
+		else
+			System.out.println(tpc.findProject(wanted));
+	}
+	
 }
+
+
