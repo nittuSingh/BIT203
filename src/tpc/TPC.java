@@ -50,4 +50,33 @@ public class TPC {
         }
          return all;
     }
+    
+    /** a method to find a project given the project num
+     * 
+     */
+    public Project findProject(int projectNo)
+    {
+        for (int i = 0 ; i < numberOfProjects; i++)
+        {
+            if (TPCProjects[i].getProjectNum()==projectNo)
+                return TPCProjects[i];
+        }
+        return null;
+    }
+    
+    /** 
+     * return a String containing all projects with the keyword
+     *
+     */
+    public String findProject(String searchString)
+    {
+        String foundProjects = "Found: \n";
+         for (int i = 0; i<numberOfProjects; i++)
+        {
+            Project p = TPCProjects[i];
+            if (p.getProjectName().contains(searchString))
+            foundProjects += p.toString();
+        }
+         return foundProjects;
+    }
 }
