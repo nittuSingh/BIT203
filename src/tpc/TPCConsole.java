@@ -33,7 +33,7 @@ public class TPCConsole {
             switch(choice)
             {
                 case 1: addProject(); break;
-                case 2: break;
+                case 2: System.out.println(tpc.getAllProjects());break;
                 case 0: System.out.println("Goodbye");
                 default: System.out.println("Invalid choice");
             }
