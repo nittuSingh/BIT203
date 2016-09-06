@@ -39,4 +39,15 @@ public class TPC {
         }
         return p;
     }
+    
+    public String getAllProjects()
+    {
+        String all = "All Projects\nNo\tName\n";
+        for (int i = 0; i<numberOfProjects; i++)
+        {
+            Project p = TPCProjects[i];
+            all += p.getProjectNum() + "\t" + p.getProjectName() +"\n";
+        }
+         return all;
+    }
 }
