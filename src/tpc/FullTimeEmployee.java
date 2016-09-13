@@ -47,6 +47,6 @@ public class FullTimeEmployee extends Employee{
     
     public String toString()
     {
-        return name + " with employee number " + empNum + " and salary of " + monthlySalary;
+        return "Full Time: " + name + " with employee number " + empNum + " and salary of " + monthlySalary;
     }
 }

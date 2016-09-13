@@ -31,6 +31,24 @@ public class TPC {
     }
     
     /**
+     * A method to return the collection of employees
+     * @return the collection of employees
+     */
+    public ArrayList<Employee>  getEmployees()
+    {
+        return TPCEmployees;
+    }
+    
+    /**
+     * a method to return the number of employees in the arraylist
+     * @return the number of employees currently stored
+     */
+    public int getNumEmployees()
+    {
+        return TPCEmployees.size();
+    }
+    
+    /**
      * A method to add a full time employee to the collection of employees
      * @param name the name of the employee
      * @param monthlySalary the monthly salary of the full time employee
@@ -115,5 +133,34 @@ public class TPC {
             foundProjects += p.toString()+"\n";
         }
          return foundProjects;
+    }
+    
+    /** 
+     * A method to find an employee with the given employee number
+     * @param empNum
+     * @return the Employee
+     */
+    public Employee findEmployee(int empNum)
+    {
+        for (Employee e:TPCEmployees)
+        {
+          if (e.getEmpNum() == empNum)
+              return e;
+        }
+        return null;
+    }
+    
+    /** 
+     * A method to return the info about all employees
+     * @return 
+     */
+    public String getAllEmployees()
+    {
+        String all = "All Employees\n";
+        for (Employee e:TPCEmployees)
+        {
+            all += e.toString() + "\n";
+        }
+        return all;
     }
 }

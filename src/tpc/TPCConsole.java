@@ -29,6 +29,7 @@ public class TPCConsole {
             System.out.println("3. Add Task to Project");
             System.out.println("4. View Project Tasks");
             System.out.println("5. Add Employee");
+            System.out.println("6. View All Employees");
             System.out.println("0. Quit");
             System.out.print("\nEnter choice :");
             choice = sc.nextInt();
@@ -40,6 +41,7 @@ public class TPCConsole {
                 case 3: addTask(); break;
                 case 4: viewTasks(); break;
                 case 5: addEmployee(); break;
+                case 6: viewEmployees(); break;
                 case 0: System.out.println("Goodbye");
                 default: System.out.println("Invalid choice");
             }
@@ -141,6 +143,14 @@ public class TPCConsole {
             System.out.println("No employee created");
         else
             System.out.println("Created: " + emp.toString());
+    }
+    
+    public static void viewEmployees()
+    {
+        if (tpc.getNumEmployees() == 0)
+            System.out.println("No employees yet!");
+        else
+            System.out.println(tpc.getAllEmployees());
     }
 }
 

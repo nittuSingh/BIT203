@@ -49,6 +49,6 @@ public class PartTimeEmployee extends Employee{
     
     public String toString()
     {
-        return name + " with employee number " + empNum + " and hourly rate of " + hourlyRate;
+        return "Part Time:" + name + " with employee number " + empNum + " and hourly rate of " + hourlyRate;
     }
 }
