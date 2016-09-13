@@ -28,6 +28,7 @@ public class TPCConsole {
             System.out.println("2. Show Projects");
             System.out.println("3. Add Task to Project");
             System.out.println("4. View Project Tasks");
+            System.out.println("5. Add Employee");
             System.out.println("0. Quit");
             System.out.print("\nEnter choice :");
             choice = sc.nextInt();
@@ -38,6 +39,7 @@ public class TPCConsole {
                 case 2: findProjects();break;
                 case 3: addTask(); break;
                 case 4: viewTasks(); break;
+                case 5: addEmployee(); break;
                 case 0: System.out.println("Goodbye");
                 default: System.out.println("Invalid choice");
             }
@@ -104,6 +106,41 @@ public class TPCConsole {
             System.out.println("Project Found: " + foundProject.toString());
             System.out.println(foundProject.allTasks());
         }
+    }
+    
+    public static void addEmployee()
+    {
+        System.out.println("Do you want to add ");
+        System.out.println("1. Full Time Employee");
+        System.out.println("2. Part Time Employee");
+        System.out.print("Enter choice : ");
+        int empType = sc.nextInt();
+        sc.nextLine();
+        
+        // allow user to enter employee data
+        Employee emp = null;
+        System.out.print("Enter employee name :");
+        String name = sc.nextLine();
+        if (empType == 1)
+        {
+            System.out.print("Enter monthly salary :");
+            double salary = sc.nextDouble();
+            sc.nextLine();
+            emp = tpc.addFullTimeEmployee(name, salary);
+        }
+        else if (empType == 2)
+        {
+            System.out.print("Enter hourly rate :");
+            double rate = sc.nextDouble();
+            sc.nextLine();
+            emp = tpc.addPartTimeEmployee(name, rate);
+        }
+        else
+            System.out.println("Invalid choice");
+        if (emp == null)
+            System.out.println("No employee created");
+        else
+            System.out.println("Created: " + emp.toString());
     }
 }
 
