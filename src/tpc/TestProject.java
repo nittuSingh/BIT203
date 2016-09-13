@@ -20,5 +20,8 @@ public class TestProject {
         System.out.println(p1.toString());
         System.out.println(p2.toString());
         System.out.println(p3.toString());
+        
+        Employee e1 = new FullTimeEmployee();
+        System.out.println(e1.toString());
     }
 }
